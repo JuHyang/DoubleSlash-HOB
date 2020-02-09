@@ -9,5 +9,6 @@ db.once('open', function () {
 })
 
 exports.connectMongoose = function () {
-    mongoose.connect('mongodb://localhost/mongodb_tutorial');
+    //mongoose.connect('mongodb://localhost/mongodb_tutorial');
+    mongoose.connect('mongodb://localhost/HOB');
 }

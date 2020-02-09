@@ -8,18 +8,6 @@ router.get('/', function(req, res, next) {
   res.send('users');
 });
 
-router.get('/look', (req, res, next) => { 
-  /*
-   * 디버깅 용도
-   */
-
-  User.find(function(err, data){
-    if(err) return res.status(500).json({ error: err });
-    res.json(data);
-  });
-  console.log('Debugging');
-});
-
 router.post('/signup', function(req, res, next) { // 디버깅 용
   let user = new User();
   user.name = req.param("name"); 

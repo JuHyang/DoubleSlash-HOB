@@ -5,10 +5,11 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 ////////ROUTERS////////////////////////////////
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-var hobRouter = require('./routes/hob');
-var classsRouter = require('./routes/class');
+var indexRouter = require('./routes/index'); // 인덱스
+var usersRouter = require('./routes/users'); // 유저관련
+var hobRouter = require('./routes/hob'); // 현재 수강 정보 제공
+var classRouter = require('./routes/class'); // 수강 관련
+var masterRouter = require('./routes/master'); // 마스터 라우터 정보 입력 및 수정 용
 //////////////////////////////////////////////
 
 var app = express();
@@ -31,10 +32,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 ////////ROUTER CONNECT///////////////////
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use('/hob', hobRouter);
-app.use('/class', classRouter);
+app.use('/', indexRouter); // 인덱스
+app.use('/users', usersRouter); // 유저 관련
+app.use('/hob', hobRouter); // 현재 수강 정보 제공
+app.use('/class', classRouter); // 수강 관련 
+app.use('/master', masterRouter); // 마스터 라우터 정보 입력 및 수정 용
 ////////////////////////////////////////
 
 

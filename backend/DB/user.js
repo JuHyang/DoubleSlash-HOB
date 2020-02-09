@@ -7,9 +7,9 @@ var userSchema = new Schema({
     age: Number,
     mail: String,
     desc: String,
-    HOBsignup: [{ idx: String, title: String }],
-    HOBpick: [{ idx: String, title: String }],
-    HOBcomp: [{ idx: String, title: String }]
+    HOB: [{ idx: String, title: String }],
+    pickHOB: [{ idx: String, title: String }],
+    finHOB: [{ idx: String, title: String }]
 })
 
 module.exports = mongoose.model('userschema', userSchema)

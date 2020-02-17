@@ -10,7 +10,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
 object ServerHandler {
-    const val url = "https://www.naver.com"
+    const val url = "http://172.20.10.6:3000"
     private val client = OkHttpClient.Builder()
             .connectTimeout(20, TimeUnit.SECONDS)
             .writeTimeout(20, TimeUnit.SECONDS)
@@ -31,12 +31,4 @@ object ServerHandler {
     private val serverInterface = retrofit.create(ServerInterface::class.java)
 
     fun getInterface(): ServerInterface = serverInterface
-
-    fun getText() {
-        serverInterface.getText()
-                .subscribeOn(Schedulers.computation())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({result -> println(result)})
-                .apply {  }
-    }
 }

@@ -27,11 +27,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void connectionTest() {
-        User user = new User("1", "1", 25, "1", "1");
-        ServerInterface serverInterface = ServerHandler.INSTANCE.getInterface();
-        serverInterface.signUp(user)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
+        User user = new User("122", "112312", 25, "1", "1");
+        ServerHandler.INSTANCE.signUp(user)
                 .subscribe(result -> {
                     String temp = textView.getText().toString() + " ";
                     textView.setText(temp + result);
@@ -40,9 +37,7 @@ public class MainActivity extends AppCompatActivity {
                     Log.e(TAG, "Throwable " + throwable.getMessage());
                 });
 
-        serverInterface.getAllHobList(1)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
+        ServerHandler.INSTANCE.getAllHobList(1)
                 .subscribe(result -> {
                     String temp = textView.getText().toString() + " ";
                     textView.setText(temp + result);
@@ -51,9 +46,7 @@ public class MainActivity extends AppCompatActivity {
                     Log.e(TAG, "Throwable " + throwable.getMessage());
                 });
 
-        serverInterface.getClassList("5e4a719055b2692d34c663eb", 1)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
+        ServerHandler.INSTANCE.getClassList("5e4a719055b2692d34c663eb", 1)
                 .subscribe(result -> {
                     String temp = textView.getText().toString() + " ";
                     textView.setText(temp + result);
@@ -62,9 +55,7 @@ public class MainActivity extends AppCompatActivity {
                     Log.e(TAG, "Throwable " + throwable.getMessage());
                 });
 
-        serverInterface.getPickList("5e4a719055b2692d34c663eb", 1)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
+        ServerHandler.INSTANCE.getPickList("5e4a719055b2692d34c663eb", 1)
                 .subscribe(result -> {
                     String temp = textView.getText().toString() + " ";
                     textView.setText(temp + result);
@@ -73,9 +64,7 @@ public class MainActivity extends AppCompatActivity {
                     Log.e(TAG, "Throwable " + throwable.getMessage());
                 });
 
-        serverInterface.getFinList("5e4a719055b2692d34c663eb", 1)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
+        ServerHandler.INSTANCE.getFinList("5e4a719055b2692d34c663eb", 1)
                 .subscribe(result -> {
                     String temp = textView.getText().toString() + " ";
                     textView.setText(temp + result);
@@ -84,9 +73,7 @@ public class MainActivity extends AppCompatActivity {
                     Log.e(TAG, "Throwable " + throwable.getMessage());
                 });
 
-        serverInterface.classRegister("5e4a719055b2692d34c663eb", "5e3fe6c6e228761b2864388e", "기타 첫걸음1")
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
+        ServerHandler.INSTANCE.classRegister("5e4a719055b2692d34c663eb", "5e3fe6c6e228761b2864388e", "기타 첫걸음1")
                 .subscribe(result -> {
                     String temp = textView.getText().toString() + " ";
                     textView.setText(temp + result);
@@ -95,9 +82,7 @@ public class MainActivity extends AppCompatActivity {
                     Log.e(TAG, "Throwable " + throwable.getMessage());
                 });
 
-        serverInterface.classPickup("5e4a719055b2692d34c663eb", "5e3fe6c6e228761b2864388e", "기타 첫걸음1")
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
+        ServerHandler.INSTANCE.classPickup("5e4a719055b2692d34c663eb", "5e3fe6c6e228761b2864388e", "기타 첫걸음1")
                 .subscribe(result -> {
                     String temp = textView.getText().toString() + " ";
                     textView.setText(temp + result);
@@ -106,9 +91,7 @@ public class MainActivity extends AppCompatActivity {
                     Log.e(TAG, "Throwable " + throwable.getMessage());
                 });
 
-        serverInterface.classFin("5e4a719055b2692d34c663eb", "5e3fe6c6e228761b2864388e", "1")
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
+        ServerHandler.INSTANCE.classFin("5e4a719055b2692d34c663eb", "5e3fe6c6e228761b2864388e", "1")
                 .subscribe(result -> {
                     String temp = textView.getText().toString() + " ";
                     textView.setText(temp + result);
@@ -117,9 +100,7 @@ public class MainActivity extends AppCompatActivity {
                     Log.e(TAG, "Throwable " + throwable.getMessage());
                 });
 
-        serverInterface.classGetDetail("5e3fe6c6e228761b2864388e")
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
+        ServerHandler.INSTANCE.classGetDetail("5e3fe6c6e228761b2864388e")
                 .subscribe(result -> {
                     String temp = textView.getText().toString() + " ";
                     textView.setText(temp + result);
@@ -128,9 +109,7 @@ public class MainActivity extends AppCompatActivity {
                     Log.e(TAG, "Throwable " + throwable.getMessage());
                 });
 
-        serverInterface.classSearch("기타 첫걸음1")
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
+        ServerHandler.INSTANCE.classSearch("기타 첫걸음1")
                 .subscribe(result -> {
                     String temp = textView.getText().toString() + " ";
                     textView.setText(temp + result);

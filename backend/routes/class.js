@@ -13,7 +13,7 @@ router.get('/', function(req, res, next) {
 });
 
 
-router.post('/signup', function(req, res, next) {
+router.post('/register', function(req, res, next) {
     /*
      * 강좌 수강 
      */
@@ -24,7 +24,8 @@ router.post('/signup', function(req, res, next) {
         let result = await Update.UserHob(idx, classIdx, title);
         if (result == 404) return res.status(404).json({ error: "Not found" });
         if (result == 500) return res.status(500).json({ error: "err" });
-        res.json({ result: 1 });
+        //res.json({ result: 1 });
+        res.send("register");
     })();
 });
 
@@ -39,7 +40,8 @@ router.post('/pickup', function(req, res, next) {
         let result = await Update.UserPickHob(idx, classIdx, title);
         if (result == 404) return res.status(404).json({ error: "Not found" });
         if (result == 500) return res.status(500).json({ error: "err" });
-        res.json({ result: 1 });
+        //res.json({ result: 1 });
+        res.send("pickup");
     })();
 });
 
@@ -55,7 +57,8 @@ router.post('/fin', function(req, res, next) {
         let resultHob = await Delete.UserHob(idx, classIdx);
         if (resultFin == 404 || resultHob == 404) return res.status(404).json({ error: "Not found" });
         if (resultFin == 500 || resultHob == 500) return res.status(500).json({ error: "err" });
-        res.json({ result: 1 });
+        //res.json({ result: 1 });
+        res.send("fin");
     })();
 });
 
@@ -68,7 +71,8 @@ router.post('/getdetail', function(req, res, next) {
         let result = await Search.HobIdx(classIdx);
         if (result == 404) return res.status(404).json({ error: "Not found" });
         if (result == 500) return res.status(500).json({ error: "err" });
-        res.json(result);
+        //res.json(result);
+        res.send("getdetail");
     })();
 });
 
@@ -81,7 +85,8 @@ router.post('/search', function(req, res, next) {
         let result = await Search.HobTitle(title);
         if (result == 404) return res.status(404).json({ error: "Not found" });
         if (result == 500) return res.status(500).json({ error: "err" });
-        res.json(result);
+        //res.json(result);
+        res.send(result.title);
     })();
 });
 

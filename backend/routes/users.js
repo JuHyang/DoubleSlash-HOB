@@ -22,11 +22,13 @@ router.post('/signup', function(req, res, next) { // 디버깅 용
   user.save(function (err) {
     if (err) {
       console.error(err);
-      res.json({ result: 0 });
+      //res.json({ result: 0 });
+      res.send("0");
       return;
     }
 
-    res.json({ result: 1 });
+    //res.json({ result: 1 });
+    res.send(user._id);
   });
 });
 

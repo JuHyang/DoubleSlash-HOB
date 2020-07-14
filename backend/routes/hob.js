@@ -19,7 +19,8 @@ router.post('/all', function(req, res, next) {
         let result = await Get.Hob(parseInt(skip));
         if (result == 500) return res.status(500).json({ error: "err" });
         if (result == 404) return res.status(404).json({ error: "Not found" });
-        res.json(result);
+        //res.json(result);
+        res.send("all");
         console.log("PASSING THE ALL HOBS");
     })();
 });
@@ -29,13 +30,15 @@ router.post('/classlist', function(req, res, next) {
      * 수강중인 HOB 제공 
      */
     let idx = req.param('idx');
-    let limit = req.param('limit');
+    let skip = req.param('skip');
+    console.log("asdasdasd");
     ( async () => {
         let result = await Search.User(idx);
         if (result == 500) return res.status(500).json({ error: "err" });
         if (result == 404) return res.status(404).json({ error: "Not found" });
-        let userClass = Pager.Array(result.HOB, limit);
-        res.send(userClass);
+        let userClass = Pager.Array(result.HOB, skip);
+        //res.send(userClass);
+        res.send("classlist");
         console.log("PASSING THE CLASSLIST");
     })();
 });
@@ -45,13 +48,14 @@ router.post('/picklist', function(req, res, next) {
      * 찜한 HOB 제공 
      */
     let idx = req.param('idx');
-    let limit = req.param('limit');
+    let skip = req.param('skip');
     ( async () => {
         let result = await Search.User(idx);
         if (result == 500) return res.status(500).json({ error: "err" });
         if (result == 404) return res.status(404).json({ error: "Not found" });
-        let userPick = Pager.Array(result.pickHOB, limit);
-        res.send(userPick);
+        let userPick = Pager.Array(result.pickHOB, skip);
+        //res.send(userPick);
+        res.send("picklist");
         console.log("PASSING THE PICKLIST");
     })();
 });
@@ -61,13 +65,14 @@ router.post('/finlist', function(req, res, next) {
      * 수강 완료 한 HOB 제공 
      */
     let idx = req.param('idx');
-    let limit = req.param('limit');
+    let skip = req.param('skip');
     ( async () => {
         let result = await Search.User(idx);
         if (result == 500) return res.status(500).json({ error: "err" });
         if (result == 404) return res.status(404).json({ error: "Not found" });
-        let userFin = Pager.Array(result.finHOB, limit);
-        res.send(userFin);
+        let userFin = Pager.Array(result.finHOB, skip);
+        //res.send(userFin);
+        res.send("finlist");
         console.log("PASSING THE FINISHLIST");
     })();
 });

@@ -29,7 +29,7 @@ public class MongoConfiguration extends AbstractMongoClientConfiguration {
     }
 
     @Override
-    protected void configureClientSettings(MongoClientSettings.Builder builder) {
+    protected void configureClientSettings(MongoClientSettings.Builder builder) { // Client Configure
 
         builder
                 .credential(MongoCredential.createCredential(userName, database, password.toCharArray()))

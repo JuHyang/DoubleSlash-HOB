@@ -18,6 +18,6 @@ data class User (
     var sex: String,
     var age: String,
     var mail: String,
-    var subscribeHobIdList: ArrayList<Int> = ArrayList(),
-    var cancelHobIdList: ArrayList<Int> = ArrayList()
+    var subscribeHobIdList: ArrayList<Int>,
+    var endHobIdList: ArrayList<Int>
 )

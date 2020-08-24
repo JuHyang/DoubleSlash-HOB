@@ -42,15 +42,4 @@ class HobController {
         return "hob content"
     }
 
-    @GetMapping("/in") // 테스트 컨트롤러
-    fun setUser(): String {
-        val user = Hob()
-        try {
-            hobService.create(user)
-        } catch (e: Exception) {
-            e.printStackTrace()
-        }
-        return "ok"
-    }
-
 }

@@ -3,12 +3,15 @@ package hob.spring.service
 import hob.spring.model.HobType
 import hob.spring.repository.HobTypeRepository
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.data.mongodb.core.MongoTemplate
 import org.springframework.stereotype.Service
 
 @Service
 class HobTypeService: InterfaceHobTypeService {
     @Autowired
     private lateinit var hobTypeRepository: HobTypeRepository
+    @Autowired
+    private lateinit var mongoTemplate: MongoTemplate
 
     operator fun get(id: String): HobType { // 홉 타입 의 id 값을 통해 검색하는 함수
         return hobTypeRepository.findById(id).orElse(null)
